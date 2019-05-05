@@ -1,0 +1,79 @@
+{
+	"info": {
+		"_postman_id": "76d507c6-eea6-4449-b661-8fada14cffca",
+		"name": "fileupload",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AddAttachmentToIssue Copy Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "16ad2468-0048-42f7-a3f7-1a1f8be2a33e",
+						"exec": [
+							"/*var jsonData = JSON.parse(responseBody),",
+							"    fileEncodedContents = jsonData.files.testFile,",
+							"    fileContents = atob(fileEncodedContents.substring(fileEncodedContents.indexOf(\",\")+1));",
+							"",
+							"tests[\"File says HelloMithra\"] = fileContents === \"HelloMithra\";",
+							"tests[\"Text param says sampleText\"] = jsonData.form.textParam === \"sampleText\";*/"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Atlassian-Token",
+						"type": "text",
+						"value": "no-check"
+					},
+					{
+						"key": "multipart/form-data",
+						"type": "text",
+						"value": "object",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "fileParam",
+							"type": "file",
+							"value": ""
+						},
+						{
+							"key": "textParam",
+							"value": "sampleText",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://{{server}}/{{resourse}}/issue/WEEK-6/attachments",
+					"protocol": "https",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"{{resourse}}",
+						"issue",
+						"WEEK-6",
+						"attachments"
+					]
+				},
+				"description": "creaing new issue on Jira"
+			},
+			"response": []
+		}
+	]
+}

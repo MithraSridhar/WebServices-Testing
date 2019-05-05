@@ -1,0 +1,300 @@
+{
+	"info": {
+		"_postman_id": "06096e57-93a6-4b3d-9905-6c7e5f9d7dd5",
+		"name": "ChangeParameterization[Day2]",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CreateNewChangeRequest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "55bdee2e-442d-4aa2-af82-01e9357d4563",
+						"exec": [
+							"let response = pm.response.json();",
+							"console.log(response);",
+							"",
+							"",
+							"pm.environment.set(\"sys_id\", response.result.sys_id);",
+							"let  systemid = pm.environment.get(\"sys_id\");",
+							"console.log(systemid);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"disabled": false,
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"number\": \"CH0025\",\n\"category\": \"software\",\n \"urgency\" : 2,\n \"short_description\" : \"Created for practice through Postman MM\"\n }"
+				},
+				"url": {
+					"raw": "https://{{server}}/{{resourse}}/{{table}}?sysparm_fields=sys_created_on,number,sys_id",
+					"protocol": "https",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"{{resourse}}",
+						"{{table}}"
+					],
+					"query": [
+						{
+							"key": "sysparm_fields",
+							"value": "sys_created_on,number,sys_id"
+						},
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				},
+				"description": "Creating new change request\n"
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllChangeRequest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b6a82e66-afce-4179-bde4-9aa040103852",
+						"exec": [
+							"/*let response = pm.response.json();",
+							"//console.log(response);",
+							"//console.log(response.result.length);",
+							"",
+							"pm.globals.set(\"count\", response.result.length);",
+							"",
+							"console.log(\"Count before deleting\" +pm.globals.get(\"count\"));*/",
+							"",
+							"//XML output format",
+							"",
+							"let response =pm.response.text();",
+							"",
+							"console.log(response);",
+							"//response ime",
+							"let responsetime= pm.response.responseTime;",
+							"console.log(\"Response Time is \" +responsetime);",
+							"",
+							"//session ID",
+							"let sessionID = pm.cookies.get(\"JSESSIONID\");",
+							"console.log(\"Session ID is \" +sessionID);",
+							"",
+							"//Header",
+							"let header = pm.response.headers;",
+							"console.log(\"Header is \" +header);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://{{server}}/{{resourse}}/{{table}}?",
+					"protocol": "https",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"{{resourse}}",
+						"{{table}}"
+					],
+					"query": [
+						{
+							"key": "priority",
+							"value": "3",
+							"disabled": true
+						},
+						{
+							"key": "sysparm_fields",
+							"value": "number,sys_id",
+							"disabled": true
+						}
+					]
+				},
+				"description": "change reques"
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteRequest",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "de57dd89-ee9f-4789-a5cd-6916588bebb2",
+						"exec": [
+							"//Printing server IP",
+							"",
+							"let servip = pm.environment.get(\"server\");",
+							"console.log(servip);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{server}}/{{resourse}}/{{table}}/{{sys_id}}",
+					"protocol": "https",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"{{resourse}}",
+						"{{table}}",
+						"{{sys_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllChangeRequest AfterDelete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b6a82e66-afce-4179-bde4-9aa040103852",
+						"exec": [
+							"let response = pm.response.json();",
+							"console.log(response.result.length);",
+							"",
+							"let initialcount =pm.globals.get(\"count\");",
+							"console.log(\"Initial count is \" +initialcount);",
+							"",
+							"",
+							"pm.globals.set(\"fcount\", response.result.length);",
+							"let finalcount =pm.globals.get(\"fcount\");",
+							"console.log(\"Final count is \" +finalcount);",
+							"",
+							"if(finalcount === initialcount-1){",
+							"    console.log(\"Count confirms as deleted\");",
+							"}",
+							"else{",
+							"     console.log(\"Count confirms as not deleted\");",
+							"}",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://{{server}}/{{resourse}}/{{table}}?",
+					"protocol": "https",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"{{resourse}}",
+						"{{table}}"
+					],
+					"query": [
+						{
+							"key": "priority",
+							"value": "3",
+							"disabled": true
+						},
+						{
+							"key": "sysparm_fields",
+							"value": "number,sys_id",
+							"disabled": true
+						}
+					]
+				},
+				"description": "change reques"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "MITHUsri1307*",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "admin",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "20ed7043-b77a-48d0-b6dc-8c3ef94abff7",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "483e6e85-c376-4f34-a408-54174eaf8114",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "12d4df16-af37-41d4-a487-4cc923397c3f",
+			"key": "table",
+			"value": "change_request",
+			"type": "string"
+		},
+		{
+			"id": "3b6c6f17-78e9-4f01-83c4-571c1b79c3b3",
+			"key": "sys_id",
+			"value": "dummy",
+			"type": "string",
+			"disabled": true
+		}
+	]
+}

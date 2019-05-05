@@ -1,0 +1,23 @@
+{
+	"id": "d89e412d-0710-48e0-8369-99c7bab471c3",
+	"values": [
+		{
+			"key": "resourse",
+			"value": "rest/api/3",
+			"description": {
+				"content": "",
+				"type": "text/plain"
+			},
+			"enabled": true
+		},
+		{
+			"key": "key",
+			"value": "WST-3",
+			"enabled": true
+		}
+	],
+	"name": "Jira Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2018-10-08T12:04:52.314Z",
+	"_postman_exported_using": "Postman/6.4.1"
+}

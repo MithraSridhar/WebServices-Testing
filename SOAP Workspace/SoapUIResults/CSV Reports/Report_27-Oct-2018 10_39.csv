@@ -1,0 +1,13 @@
+"Test Suite","Test Case","TestStep","Step Type","Step Status","Result message","Execution Date"
+"Calc_Operations1","Calc_TCFullRunThroughEditor","ADD","request","OK","","27-Oct-2018 10_39",
+"Calc_Operations1","Calc_TCFullRunThroughEditor","SUB","request","OK","","27-Oct-2018 10_39",
+"Calc_Operations1","Calc_TCFullRunThroughEditor","MUL","request","OK","","27-Oct-2018 10_39",
+"Calc_Operations1","Calc_TCFullRunThroughEditor","DIV","request","OK","","27-Oct-2018 10_39",
+"Calc_Operations1","Calc_TC1FullRunThroughGlobalprop","ADD","request","OK","","27-Oct-2018 10_39",
+"Calc_Operations1","Calc_TC1FullRunThroughGlobalprop","SUB","request","OK","","27-Oct-2018 10_39",
+"Calc_Operations1","Calc_TC1FullRunThroughGlobalprop","MUL","request","OK","","27-Oct-2018 10_39",
+"Calc_Operations1","Calc_TC1FullRunThroughGlobalprop","DIV","request","OK","","27-Oct-2018 10_39",
+"Calc_Operations1","Calc_TC1FullRunThroughGroovScript","ADD","request","OK","","27-Oct-2018 10_39",
+"Calc_Operations1","Calc_TC1FullRunThroughGroovScript","SUB","request","OK","","27-Oct-2018 10_39",
+"Calc_Operations1","Calc_TC1FullRunThroughGroovScript","MUL","request","OK","","27-Oct-2018 10_39",
+"Calc_Operations1","Calc_TC1FullRunThroughGroovScript","DIV","request","OK","","27-Oct-2018 10_39",

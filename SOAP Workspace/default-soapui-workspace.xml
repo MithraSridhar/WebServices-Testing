@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-workspace name="Projects" soapui-version="5.4.0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings/>
+  <con:project name="SalesForceWeek3Day2">C:/Users/USER/Desktop/Web Services Testing Test Leaf/SOAP Workspace/SalesForceWeek3Day2-soapui-project.xml</con:project>
+  <con:project name="Week3Day1">C:/Users/USER/Desktop/Web Services Testing Test Leaf/SOAP Workspace/Week3Day1-soapui-project.xml</con:project>
+  <con:project name="CountryInfoSerivce_Week3Day2">C:/Users/USER/Desktop/Web Services Testing Test Leaf/SOAP Workspace/CountryInfoSerivce-Week3Day2-soapui-project.xml</con:project>
+  <con:project name="OpenWeatherRESTProject">C:/Users/USER/Desktop/Web Services Testing Test Leaf/SOAP Workspace/OpenWeatherRESTProject-soapui-project.xml</con:project>
+  <con:project name="RESTJira">C:/Users/USER/Desktop/Web Services Testing Test Leaf/SOAP Workspace/REST-Project-1-soapui-project.xml</con:project>
+  <con:project name="CalculatorProject">C:/Users/USER/Desktop/Web Services Testing Test Leaf/SOAP Workspace/CalculatorProject-soapui-project.xml</con:project>
+  <con:project name="SalesForceProject">C:/Users/USER/Desktop/Web Services Testing Test Leaf/SOAP Workspace/SalesForceProject-soapui-project.xml</con:project>
+  <con:project name="RESTJiraProjectFinal">C:/Users/USER/Desktop/Web Services Testing Test Leaf/SOAP Workspace/RESTJiraProjectFinal-soapui-project.xml</con:project>
+  <con:project name="CalCMockProject">C:/Users/USER/Desktop/Web Services Testing Test Leaf/SOAP Workspace/CalCMockProject-soapui-project.xml</con:project>
+  <con:collectInfoForSupport>false</con:collectInfoForSupport>
+</con:soapui-workspace>

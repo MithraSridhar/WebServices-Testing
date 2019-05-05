@@ -1,0 +1,5 @@
+"Test Suite","Test Case","TestStep","Step Type","Step Status","Result message","Execution Date"
+"Calc_Operations1","Calc_TCFullRunThroughEditor","ADD","request","OK","","26-Oct-2018 17_12",
+"Calc_Operations1","Calc_TCFullRunThroughEditor","SUB","request","OK","","26-Oct-2018 17_12",
+"Calc_Operations1","Calc_TCFullRunThroughEditor","MUL","request","OK","","26-Oct-2018 17_12",
+"Calc_Operations1","Calc_TCFullRunThroughEditor","DIV","request","OK","","26-Oct-2018 17_12",

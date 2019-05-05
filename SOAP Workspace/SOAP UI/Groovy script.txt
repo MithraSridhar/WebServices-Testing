@@ -1,0 +1,29 @@
+//Set values
+context.setProperty("INTA",30)
+context.setProperty("INTB",30)
+
+//To run all test steps of the test case
+runner = testRunner.testCase.testSuite.project.testSuites["Calc_Operations1"].testCases["Copy of Calc_TC1FullRunThroughGroovScript"].run( null, true )
+runner.waitUntilFinished()
+
+
+/*//Go to particular test steps
+RunAdd = testRunner.testCase.testSteps["ADD"]
+RunSub = testRunner.testCase.testSteps["SUB"]
+RunMul = testRunner.testCase.testSteps["MUL"]
+RunDiv = testRunner.testCase.testSteps["DIV"]*/
+
+
+/*//Run test steps
+RunAdd.run(testRunner,context)
+RunSub.run(testRunner,context)
+RunMul.run(testRunner,context)
+RunDiv.run(testRunner,context)
+
+//To run test steps from different test cases
+RunAdd = testRunner.testCase.testSuite.testCases["Calc_TC1"].testSteps["ADD"]
+RunAdd.run(testRunner,context)
+
+//To run test steps from different test suite
+RunAdd = testRunner.testCase.testSuite.project.testSuites["Calc_Operations1"].testCases["Calc_TC"].testSteps["ADD"]
+RunAdd.run(testRunner,context)*/

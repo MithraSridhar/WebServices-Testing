@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="ba07e3f5-391b-4461-b4fe-96aeea3e4c3b" activeEnvironment="Default" name="RESTJiraProjectFinal" soapui-version="5.4.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="cf03b3d1-7761-4c8a-8f12-5f4e186908cd" wadlVersion="http://wadl.dev.java.net/2009/02" name="https://webservicestraining1.atlassian.net" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>https://webservicestraining1.atlassian.net</con:endpoint></con:endpoints><con:resource name="POST" path="/rest/api/3/issue" id="7210738e-6be1-4c7a-b923-9e6a33ba7c4c"><con:settings/><con:parameters/><con:method name="POSTResourse" id="246fefda-77f5-453f-b1bd-f84784c064c7" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>201</con:status><con:params/><con:element xmlns:iss="https://webservicestraining1.atlassian.net/rest/api/3/issue">iss:Response</con:element></con:representation><con:request name="Request 1" id="4788fbb0-d3d4-4c97-96c9-75cb05a146ed" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://webservicestraining1.atlassian.net</con:endpoint><con:request>{
+  
+    "fields": {
+        "project": {
+            "id": "10000"
+        },
+        "summary": "Created for Week1 Homework attachment",
+        "issuetype": {
+            "id": "10005"
+        }
+}
+
+	
+}</con:request><con:originalUri>https://webservicestraining1.atlassian.net/rest/api/3/issue</con:originalUri><con:credentials><con:username>mithugopal30@gmail.com</con:username><con:password>MITHUsri1307*</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="GET" path="/rest/api/3/issue/${IssueKey}" id="f3219738-1780-4feb-bce3-c66d5ee0b7a6"><con:settings/><con:parameters><con:parameter><con:name>Key</con:name><con:value>Key</con:value><con:style>TEMPLATE</con:style><con:default>Key</con:default></con:parameter></con:parameters><con:method name="GETResourse" id="937d82a0-a72d-418c-b6ed-2a090d830813" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:week="https://webservicestraining1.atlassian.net/rest/api/3/issue/WEEK-13">week:Response</con:element></con:representation><con:request name="Request 1" id="16dbc1de-7354-4795-9ea2-39394916c05a" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://webservicestraining1.atlassian.net</con:endpoint><con:request/><con:credentials><con:username>mithugopal30@gmail.com</con:username><con:password>MITHUsri1307*</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="Key" value="WEEK" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:request></con:method></con:resource></con:interface><con:testSuite id="7409c742-2efe-4a95-a3a9-a1b652c20dd7" name="TestSuiteJira"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="391e6675-8e6d-4049-b1a9-7829c065f131" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="POST" id="6b3abe87-a938-409e-a199-0f67cc93e03c"><con:settings/><con:config service="https://webservicestraining1.atlassian.net" resourcePath="/rest/api/3/issue" methodName="POSTResourse" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST" id="4788fbb0-d3d4-4c97-96c9-75cb05a146ed" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://webservicestraining1.atlassian.net</con:endpoint><con:request>{
+  
+    "fields": {
+        "project": {
+            "id": "10000"
+        },
+        "summary": "Created for Week1 Homework attachment",
+        "issuetype": {
+            "id": "10005"
+        }
+}
+
+	
+}</con:request><con:originalUri>https://webservicestraining1.atlassian.net/rest/api/3/issue</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="12360cad-217b-43e1-a183-aea59bdd9aed" name="Valid HTTP Status Codes"><con:configuration><codes>201</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="8d74d116-eb05-47b2-bd82-4a6611d19c28" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+//Get resposne from message content
+response = messageExchange.response.responseContent
+
+//Changing response format to JSON
+parsejson = new JsonSlurper().parseText(response)
+
+//Saving status code from response to variable
+IssueKey = parsejson.key
+
+log.info IssueKey
+
+com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("IssueKey",IssueKey);
+</scriptText></con:configuration></con:assertion><con:credentials><con:username>mithugopal30@gmail.com</con:username><con:password>MITHUsri1307*</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="GET" id="ab615eae-5aa8-4e89-8bd3-b0e5a04e3678"><con:settings/><con:config service="https://webservicestraining1.atlassian.net" resourcePath="/rest/api/3/issue/${IssueKey}" methodName="GETResourse" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET" id="16dbc1de-7354-4795-9ea2-39394916c05a" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://webservicestraining1.atlassian.net</con:endpoint><con:request/><con:originalUri>https://webservicestraining1.atlassian.net/rest/api/3/issue/WEEK-13</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="395cece7-7f01-4849-af83-f616d8c062ee" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="c5c5c227-6f39-478c-8dc8-55ce055ec095" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+//Get resposne from message content
+response = messageExchange.response.responseContent
+
+//Changing response format to JSON
+parsejson = new JsonSlurper().parseText(response)
+
+//Saving status code from response to variable
+Key = parsejson.key
+def KeyFromGlobal = context.expand('${#Global#IssueKey}')
+log.info Key
+log.info KeyFromGlobal
+
+assert (Key==KeyFromGlobal)</scriptText></con:configuration></con:assertion><con:credentials><con:username>mithugopal30@gmail.com</con:username><con:password>MITHUsri1307*</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="Key" value="WEEK" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

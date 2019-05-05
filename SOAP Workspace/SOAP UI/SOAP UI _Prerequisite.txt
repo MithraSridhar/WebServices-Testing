@@ -1,0 +1,20 @@
+1) Goto http://developers.salesforce.com 
+2) signup with valid data. 
+3) Goto your mail id and verify the account. 
+
+
+Generate the security token by just entering the below REST in the browser ( this will help in SOAP request)
+https://ap4.salesforce.com/_ui/system/security/ResetApiTokenEdit
+
+
+Outcome:
+a) will get salesforce username and password
+b) Security token
+
+WSDL Links:
+1) http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL
+2) http://www.dneonline.com/calculator.asmx?WSDL
+3) For salesforce WSDL - Refer the Google drive - WSDL folder
+
+
+

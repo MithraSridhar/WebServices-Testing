@@ -1,0 +1,28 @@
+{
+	"id": "e854e24b-c4ac-411b-827e-f4de91d710f2",
+	"values": [
+		{
+			"key": "resourse",
+			"value": "api/now/table",
+			"description": {
+				"content": "",
+				"type": "text/plain"
+			},
+			"enabled": true
+		},
+		{
+			"key": "count",
+			"value": 109,
+			"enabled": true
+		},
+		{
+			"key": "fcount",
+			"value": 108,
+			"enabled": true
+		}
+	],
+	"name": "ServiceNow Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2018-10-07T07:55:53.397Z",
+	"_postman_exported_using": "Postman/6.4.1"
+}

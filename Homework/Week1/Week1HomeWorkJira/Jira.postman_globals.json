@@ -1,0 +1,42 @@
+{
+	"id": "d89e412d-0710-48e0-8369-99c7bab471c3",
+	"values": [
+		{
+			"key": "id",
+			"value": "10010",
+			"description": {
+				"content": "",
+				"type": "text/plain"
+			},
+			"enabled": false
+		},
+		{
+			"key": "resourse",
+			"value": "rest/api/3",
+			"description": {
+				"content": "",
+				"type": "text/plain"
+			},
+			"enabled": true
+		},
+		{
+			"key": "key",
+			"value": "WST-6",
+			"enabled": true
+		},
+		{
+			"key": "issue_id",
+			"value": "10005",
+			"enabled": true
+		},
+		{
+			"key": "originalLength",
+			"value": 8,
+			"enabled": true
+		}
+	],
+	"name": "Jira Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2018-10-12T12:38:28.576Z",
+	"_postman_exported_using": "Postman/6.4.2"
+}

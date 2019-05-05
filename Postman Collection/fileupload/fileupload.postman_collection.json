@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "76d507c6-eea6-4449-b661-8fada14cffca",
+		"name": "fileupload",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AddAttachmentToIssue Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "16ad2468-0048-42f7-a3f7-1a1f8be2a33e",
+						"exec": [
+							"/*pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 2000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+							"});",
+							"*/",
+							"/*var jsonData = JSON.parse(responseBody),",
+							"    fileEncodedContents = jsonData.files.testFile,",
+							"    fileContents = atob(fileEncodedContents.substring(fileEncodedContents.indexOf(\",\")+1));",
+							"",
+							"tests[\"File says HelloMithra\"] = fileContents === \"HelloMithra\";",
+							"tests[\"Text param says sampleText\"] = jsonData.form.textParam === \"sampleText\";*/"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Atlassian-Token",
+						"type": "text",
+						"value": "no-check"
+					},
+					{
+						"key": "multipart/form-data",
+						"type": "text",
+						"value": "object",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/USER/Desktop/testFile.txt",
+							"enabled": true
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/USER/Desktop/testFile1.txt",
+							"enabled": true
+						},
+						{
+							"key": "text",
+							"value": "sampleText",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://{{server}}/{{resourse}}/issue/WEEK-7/attachments",
+					"protocol": "https",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"{{resourse}}",
+						"issue",
+						"WEEK-7",
+						"attachments"
+					]
+				},
+				"description": "creaing new issue on Jira"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "MITHUsri1307*",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "admin",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "732e67f0-9332-42c9-abeb-6c0ced97e0d7",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "98db0c98-273b-4793-8c06-46cbdb83bbbc",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

@@ -1,0 +1,244 @@
+{
+	"info": {
+		"_postman_id": "b23cb131-fde0-4736-9d4e-134a9dd46088",
+		"name": "PracticeServiceNowWeek1",
+		"description": "My Practice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetIncidents",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "796149b7-0b42-462b-80c7-2fb60a702946",
+						"exec": [
+							"let response =pm.response.json();",
+							"console.log(response);",
+							"",
+							"pm.environment.set(\"sys_id\", response.result[0].sys_id);",
+							"let systemID =",
+							"pm.environment.get(\"sys_id\"); ",
+							"",
+							"console.log(systemID);",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.environment.set(\"count\", response.result.length);",
+							"console.log(\"Initial count is \" + pm.environment.get(\"count\"));",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{server}}/{{resourse}}/{{table}}",
+					"protocol": "https",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"{{resourse}}",
+						"{{table}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateIncident",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9d05a070-5f68-4c9a-8333-7e1c0a24974b",
+						"exec": [
+							"let response =pm.response.json();",
+							"console.log(response);",
+							"let responsetime= pm.response.responseTime;",
+							"console.log(\"Response Time is \" +responsetime);",
+							"let header= pm.response.headers;",
+							"console.log(\"Header is \" +header);",
+							"let code= pm.response.code;",
+							"console.log(\"Code is \" +code);",
+							"let reason= pm.response.reason();",
+							"console.log(\"Reason is \" +reason);",
+							"",
+							"",
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+							"});",
+							"pm.response.to.be.success;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"number\": \"INC555555\"}"
+				},
+				"url": {
+					"raw": "https://{{server}}/{{resourse}}/{{table}}?sysparm_fields=number,sys_id",
+					"protocol": "https",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"{{resourse}}",
+						"{{table}}"
+					],
+					"query": [
+						{
+							"key": "sysparm_fields",
+							"value": "number,sys_id"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{server}}/{{resourse}}/{{table}}/{{sys_id}}",
+					"protocol": "https",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"{{resourse}}",
+						"{{table}}",
+						"{{sys_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetIncidentAfterDelete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3a830c86-d565-435d-8a1f-b31f32c81a08",
+						"exec": [
+							"let response =pm.response.json();",
+							"//console.log(response);",
+							"",
+							"",
+							"pm.environment.set(\"fcount\", response.result.length);",
+							"console.log(\"Final count is \" + pm.environment.get(\"fcount\"));",
+							"",
+							"let initialcount =pm.environment.get(\"count\"); ",
+							"",
+							"if(initialcount===pm.environment.get(\"fcount\")){",
+							"    console.log(\"Success\");",
+							"}",
+							"else",
+							"{",
+							"    console.log(\"Fail\");",
+							"}",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{server}}/{{resourse}}/{{table}}",
+					"protocol": "https",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"{{resourse}}",
+						"{{table}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "MITHUsri1307*",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "admin",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "1cb0f9ff-8172-4c92-8cf0-3ed32b285d4d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "adf15342-8b7d-44ad-aa7a-04cdc4308957",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "9bad5c3b-e345-4107-b3ca-e23065aa9fd9",
+			"key": "table",
+			"value": "incident",
+			"type": "string"
+		}
+	]
+}

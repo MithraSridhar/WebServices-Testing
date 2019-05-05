@@ -1,0 +1,408 @@
+{
+	"info": {
+		"_postman_id": "e76a8b07-b994-4c79-beff-b42b423761cd",
+		"name": "JiraWeek1HomeWork",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetIssue",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "95583e5f-5de8-4390-b6bd-d7ab7882d653",
+						"exec": [
+							"let response = pm.response.json();",
+							"console.log(response);",
+							"pm.environment.set(\"issueinitialcount\", response.issues.length);",
+							"console.log(\"Initial count of issues is \" +pm.environment.get(\"issueinitialcount\"));",
+							"",
+							"",
+							"pm.globals.set(\"key\",response.issues[0].key);",
+							"console.log(\"First issue key value is \" +pm.globals.get(\"key\"));",
+							"",
+							"",
+							"for( i=0; i<response.issues.length;i++){",
+							"//pm.environment.set(\"id\",response.issues[i].id);",
+							"console.log(\"Issue ID is \" +pm.response.json().issues[i].id);",
+							"//console.log(pm.response.json().issues[j].id);",
+							"}",
+							"",
+							"let random=0;",
+							"random=Math.floor(Math.random() * response.issues.length);",
+							"let issue=pm.response.json().issues[random].id;",
+							"pm.globals.set(\"issue_id\", issue);",
+							"console.log(\"Random issue id is \"+pm.globals.get(\"issue_id\"));",
+							"",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.response.to.be.success;",
+							"let statuscode = pm.response.code;",
+							"console.log(\"Status code is \"+statuscode);",
+							"",
+							"pm.test(\"Response time is less than 2000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "mithugopal30@gmail.com",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "MITHUsri1307*",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://{{server}}/{{resourse}}/search?jql=created >= '2018-10-08'",
+					"protocol": "https",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"{{resourse}}",
+						"search"
+					],
+					"query": [
+						{
+							"key": "expand",
+							"value": "changelog",
+							"disabled": true
+						},
+						{
+							"key": "jql",
+							"value": "created >= '2018-10-08'"
+						},
+						{
+							"key": "created",
+							"value": "\"2018-10-06\"",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Getting Jira issue"
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteIssue",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9e9b43e4-5c05-4370-9574-02a2e0dd0407",
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 2000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://{{server}}/{{resourse}}/issue/{{issue_id}}",
+					"protocol": "https",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"{{resourse}}",
+						"issue",
+						"{{issue_id}}"
+					]
+				},
+				"description": "Deleting existing issue"
+			},
+			"response": []
+		},
+		{
+			"name": "GetIssueCountAfterDelete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "95583e5f-5de8-4390-b6bd-d7ab7882d653",
+						"exec": [
+							"let response = pm.response.json();",
+							"console.log(response);",
+							"",
+							"pm.environment.set(\"issuefinalcount\", response.issues.length);",
+							"let finalcount = pm.environment.get(\"issuefinalcount\");",
+							"console.log(\"Final count of issues is \" +pm.environment.get(\"issuefinalcount\"));",
+							"let initialcount = pm.environment.get(\"issueinitialcount\");",
+							"if (initialcount===finalcount+1){",
+							"    console.log(\"PASS\");",
+							"}",
+							"else{",
+							"    console.log(\"FAIL\");",
+							"}",
+							"",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.response.to.be.success;",
+							"let statuscode = pm.response.code;",
+							"console.log(\"Status code is \"+statuscode);",
+							"",
+							"pm.test(\"Response time is less than 2000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "mithugopal30@gmail.com",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "MITHUsri1307*",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://{{server}}/{{resourse}}/search?jql=created >= '2018-10-08'",
+					"protocol": "https",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"{{resourse}}",
+						"search"
+					],
+					"query": [
+						{
+							"key": "fields",
+							"value": "summary,priority",
+							"disabled": true
+						},
+						{
+							"key": "expand",
+							"value": "changelog",
+							"disabled": true
+						},
+						{
+							"key": "jql",
+							"value": "created >= '2018-10-08'"
+						}
+					]
+				},
+				"description": "Getting Jira issue"
+			},
+			"response": []
+		},
+		{
+			"name": "CreateNewIssue",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a6dd1e68-6e67-45ec-814e-1261ccb54d7d",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"pm.response.to.be.success;",
+							"let statuscode = pm.response.code;",
+							"console.log(\"Status code is \"+statuscode);",
+							"pm.test(\"Response time is less than 2000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Atlassian-Token",
+						"value": "no-check",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \r\n    \"fields\": {\r\n        \"project\": {\r\n            \"id\": \"10001\"\r\n        },\r\n        \"summary\": \"Created for Week1 Homework attachment\",\r\n        \r\n        \"issuetype\": {\r\n            \"id\": \"10008\"\r\n        }\r\n}}"
+				},
+				"url": {
+					"raw": "https://{{server}}/{{resourse}}/issue",
+					"protocol": "https",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"{{resourse}}",
+						"issue"
+					]
+				},
+				"description": "creaing new issue on Jira"
+			},
+			"response": []
+		},
+		{
+			"name": "AddAttachmentToIssue",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "16ad2468-0048-42f7-a3f7-1a1f8be2a33e",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 2000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Atlassian-Token",
+						"type": "text",
+						"value": "no-check"
+					},
+					{
+						"key": "multipart/form-data",
+						"type": "text",
+						"value": "object",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/USER/Desktop/testFile.txt",
+							"enabled": true
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/USER/Desktop/testFile1.txt",
+							"enabled": true
+						},
+						{
+							"key": "text",
+							"value": "sampleText",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://{{server}}/{{resourse}}/issue/WEEK-7/attachments",
+					"protocol": "https",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"{{resourse}}",
+						"issue",
+						"WEEK-7",
+						"attachments"
+					]
+				},
+				"description": "creaing new issue on Jira"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "MITHUsri1307*",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "mithugopal30@gmail.com",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "54cd61a5-6d06-4195-b590-82ff734e043e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "64bdde75-8207-4541-9b3d-4618a14c0e57",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
